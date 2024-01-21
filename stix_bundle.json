@@ -1,0 +1,121 @@
+{
+    "type": "bundle",
+    "id": "bundle--a32158a8-27c2-488e-bdec-765f36f899c8",
+    "objects": [
+        {
+            "type": "threat-actor",
+            "spec_version": "2.1",
+            "id": "threat-actor--a4965bb0-54f2-4dba-9766-2a5d8661c936",
+            "created": "2024-01-21T15:18:15.444511Z",
+            "modified": "2024-01-21T15:18:15.444511Z",
+            "name": "Grupo APT Atacante",
+            "description": "Grupo APT que realiz\u00f3 el ataque."
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c497d140-107b-4033-b478-00a95026f4e9",
+            "created": "2024-01-21T15:18:15.444805Z",
+            "modified": "2024-01-21T15:18:15.444805Z",
+            "name": "Phishing",
+            "description": "TTP de la que abusan los atacantes para entregar el malware."
+        },
+        {
+            "type": "malware",
+            "spec_version": "2.1",
+            "id": "malware--9267e874-a25c-4a37-89bb-41e845b15157",
+            "created": "2024-01-21T15:18:15.445159Z",
+            "modified": "2024-01-21T15:18:15.445159Z",
+            "name": "Malware instalado",
+            "description": "Malware instalado por el correo de phishing enviado.",
+            "is_family": false
+        },
+        {
+            "type": "tool",
+            "spec_version": "2.1",
+            "id": "tool--28c407c2-375a-4a48-b5f4-e101409463fc",
+            "created": "2024-01-21T15:18:15.444986Z",
+            "modified": "2024-01-21T15:18:15.444986Z",
+            "name": "Outlook",
+            "description": "El grupo APT Atancate hizo uso de Outlook para llevar a cabo su phishing."
+        },
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--3499b44e-0d4f-4001-b3be-f87b6fd37e33",
+            "created": "2024-01-21T15:18:15.445364Z",
+            "modified": "2024-01-21T15:18:15.445364Z",
+            "name": "Usuario v\u00edctima"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--c9fc5a32-a48f-4d24-ae14-607c509266c1",
+            "created": "2024-01-21T15:18:15.445534Z",
+            "modified": "2024-01-21T15:18:15.445534Z",
+            "relationship_type": "uses",
+            "source_ref": "threat-actor--a4965bb0-54f2-4dba-9766-2a5d8661c936",
+            "target_ref": "attack-pattern--c497d140-107b-4033-b478-00a95026f4e9"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--91c5cf07-04fd-4e33-b35c-3dfcc1fa830a",
+            "created": "2024-01-21T15:18:15.446096Z",
+            "modified": "2024-01-21T15:18:15.446096Z",
+            "relationship_type": "targets",
+            "source_ref": "threat-actor--a4965bb0-54f2-4dba-9766-2a5d8661c936",
+            "target_ref": "identity--3499b44e-0d4f-4001-b3be-f87b6fd37e33"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b64b29dc-cad1-4f21-90e9-c3d49d151aa5",
+            "created": "2024-01-21T15:18:15.446291Z",
+            "modified": "2024-01-21T15:18:15.446291Z",
+            "relationship_type": "uses",
+            "source_ref": "attack-pattern--c497d140-107b-4033-b478-00a95026f4e9",
+            "target_ref": "tool--28c407c2-375a-4a48-b5f4-e101409463fc"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--8a6a1c8b-5c12-4405-ae36-3c5db957360f",
+            "created": "2024-01-21T15:18:15.446475Z",
+            "modified": "2024-01-21T15:18:15.446475Z",
+            "relationship_type": "delivers",
+            "source_ref": "tool--28c407c2-375a-4a48-b5f4-e101409463fc",
+            "target_ref": "malware--9267e874-a25c-4a37-89bb-41e845b15157"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--34ecea43-627a-460f-8c1f-dd9186b5e532",
+            "created": "2024-01-21T15:18:15.446746Z",
+            "modified": "2024-01-21T15:18:15.446746Z",
+            "relationship_type": "targets",
+            "source_ref": "tool--28c407c2-375a-4a48-b5f4-e101409463fc",
+            "target_ref": "identity--3499b44e-0d4f-4001-b3be-f87b6fd37e33"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bcaf63ce-e8e8-4dbb-be86-d60b9ef31eda",
+            "created": "2024-01-21T15:18:15.446929Z",
+            "modified": "2024-01-21T15:18:15.446929Z",
+            "relationship_type": "authored-by",
+            "source_ref": "malware--9267e874-a25c-4a37-89bb-41e845b15157",
+            "target_ref": "threat-actor--a4965bb0-54f2-4dba-9766-2a5d8661c936"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--612d071e-a954-484f-879b-e6c8426d8eda",
+            "created": "2024-01-21T15:18:15.447112Z",
+            "modified": "2024-01-21T15:18:15.447112Z",
+            "relationship_type": "targets",
+            "source_ref": "malware--9267e874-a25c-4a37-89bb-41e845b15157",
+            "target_ref": "identity--3499b44e-0d4f-4001-b3be-f87b6fd37e33"
+        }
+    ]
+}
